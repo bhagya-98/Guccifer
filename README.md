@@ -1,2 +1,2 @@
 # Guccifer
-Acoustic scene classification techniques for wome safety
+Acoustic scene classification techniques for women safety
