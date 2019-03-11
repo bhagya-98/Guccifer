@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="edu.polyu.screamalert"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="Eminence"
+        tools:ignore="GoogleAppIndexingWarning">
+
+
+
+
+        <activity
+            android:name="edu.polyu.screamalert.SoundProcessingActivity"
+            android:label="Eminence"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="edu.polyu.screamalert.SoundProcessingSetting"
+            android:launchMode="singleTask"
+            android:label="Eminence"
+            android:screenOrientation="portrait" >
+        </activity>
+        <service
+            android:name="SoundProcessingService"
+            android:icon="@drawable/ic_launcher"
+            android:label="Eminence"/>
+        <receiver
+            android:name="SoundProcessingStartupReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="AlarmReceiver"/>
+
+    </application>
+
+</manifest>
+
+
+
+
+
+
+
+

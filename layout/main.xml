@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme"
+    tools:context=".SoundProcessingActivity">
+
+    <TextView
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_marginEnd="411dp"
+        android:layout_marginRight="411dp"
+        android:gravity="end"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:text="@string/title"
+        android:textColor="#FAF5F6"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <edu.polyu.utils.WaveformView
+        android:id="@+id/waveform_view"
+        android:layout_width="match_parent"
+        android:layout_height="97dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Spinner
+        android:id="@+id/characterSpinner"
+        android:layout_width="333dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="30dp"
+        android:entries="@array/characterArray"
+        android:prompt="@string/chooseCharacter"
+        android:spinnerMode="dialog"
+        android:textColor="@color/SafeTheme"
+        app:layout_constraintBottom_toTopOf="@+id/startStopButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="312dp"
+        android:layout_height="161dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="56dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:src="@drawable/logo"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="16dp"
+        android:capitalize="characters"
+        android:padding="8sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/characterSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/sysStatus"
+        android:layout_width="58dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="297dp"
+        android:layout_marginLeft="297dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="62dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/energy"
+        app:layout_constraintTop_toBottomOf="@+id/waveform_view" />
+
+    <TextView
+        android:id="@+id/energy"
+        android:layout_width="56dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginRight="298dp"
+        android:layout_marginBottom="470dp"
+        android:text="Energy"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/sysStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waveform_view" />
+
+    <Button
+        android:id="@+id/startStopButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="startStopClick"
+        android:text="Start"
+        app:layout_constraintBottom_toTopOf="@+id/calibrateButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/characterSpinner" />
+
+    <Button
+        android:id="@+id/calibrateButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="calibrateClick"
+        android:text="Calibrate"
+        app:layout_constraintBottom_toTopOf="@+id/enableBgButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startStopButton" />
+
+    <Button
+        android:id="@+id/enableBgButton"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="bgClick"
+        android:text="Run In Background"
+        app:layout_constraintBottom_toTopOf="@+id/adSetting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calibrateButton" />
+
+    <Button
+        android:id="@+id/adSetting"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="73dp"
+        android:onClick="settingClick"
+        android:text="Settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enableBgButton" />
+
+
+</android.support.constraint.ConstraintLayout>
